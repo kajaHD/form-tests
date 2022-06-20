@@ -94,12 +94,6 @@ function TicketForm() {
       </div>
     </div>
   );
-  /* 
-            <div id="ticket-form">
-              <h1>{this.state.authorized ? 'Contact' : 'Enter the password'}</h1>
-              {this.state.authorized ? contactInfo : login}
-            </div>
-            */
 }
 
 export default TicketForm;
