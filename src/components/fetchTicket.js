@@ -43,10 +43,12 @@ const createTicket = async (
       }),
     });
     if (response.ok) {
-      const jsonResponse = await response.json();
-      console.log(jsonResponse);
+      const data = await response.json();
+      console.log('success');
+      console.log(data);
     }
   } catch (error) {
+    console.log('fail!');
     console.log(error);
   }
 };
