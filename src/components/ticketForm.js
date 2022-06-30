@@ -1,5 +1,7 @@
 import { React, useState } from 'react';
 import { createTicket } from './fetchTicket';
+import Input from './input';
+import Textarea from './textarea';
 
 function TicketForm() {
   const [name, setName] = useState(null);
@@ -32,59 +34,38 @@ function TicketForm() {
   return (
     <form className="form" onSubmit={(e) => handleSubmit(e)}>
       <div className="form-body">
-        <div className="username">
-          <label className="form__label" htmlFor="name">
-            Full Name{' '}
-          </label>
-          <input
-            className="form__input"
-            type="text"
-            id="name"
-            placeholder="Your Name"
-            onChange={(e) => handleInputChange(e)}
-            required
-          />
-        </div>
-        <div className="email">
-          <label className="form__label" htmlFor="email">
-            Email{' '}
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="form__input"
-            placeholder="Email"
-            onChange={(e) => handleInputChange(e)}
-            required
-          />
-        </div>
-        <div className="subject">
-          <label className="form__label" htmlFor="subject">
-            Subject{' '}
-          </label>
-          <input
-            className="form__input"
-            type="text"
-            id="subject"
-            placeholder="Subject"
-            onChange={(e) => handleInputChange(e)}
-            required
-          />
-        </div>
-        <div className="requester-message">
-          <label className="form__label" htmlFor="message">
-            Type Message{' '}
-          </label>
-          <textarea
-            className="form__input"
-            type="textarea"
-            id="message"
-            placeholder="Type Message"
-            style={{ height: '200px' }}
-            onChange={(e) => handleInputChange(e)}
-            required
-          />
-        </div>
+        <Input
+          {...{
+            name: 'name',
+            label: 'Full Name',
+            type: 'text',
+          }}
+          onChange={(e) => handleInputChange(e)}
+        />
+        <Input
+          {...{
+            name: 'email',
+            label: 'Email Address',
+            type: 'email',
+          }}
+          onChange={(e) => handleInputChange(e)}
+        />
+        <Input
+          {...{
+            name: 'subject',
+            label: 'Subject',
+            type: 'text',
+          }}
+          onChange={(e) => handleInputChange(e)}
+        />
+        <Textarea
+          {...{
+            name: 'message',
+            label: 'Type Message',
+            type: 'textarea',
+          }}
+          onChange={(e) => handleInputChange(e)}
+        />
       </div>
       <div className="footer">
         <button type="submit" className="btn">
