@@ -31,8 +31,14 @@ function TicketForm() {
     return createTicket(name, email, subject, message);
   };
 
+  const cleanForm = (e) => {
+    console.log('clean form');
+    e.preventDefault();
+    e.target.reset();
+  };
+
   return (
-    <form className="form" onSubmit={(e) => handleSubmit(e)}>
+    <form className="form" onSubmit={(e) => handleSubmit(e) && cleanForm(e)}>
       <div className="form-body">
         <Input
           {...{
